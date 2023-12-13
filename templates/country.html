@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    {% for country in countries %}
+      {% if country.country == requested_country %}
+        {% for language in country.languages %}
+        <li>{{language}}</a></li>
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+</ul>
+</body>
+</html>
