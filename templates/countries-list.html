@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <b><a href="/countries-list/A">A</a>&nbsp
+        <a href="/countries-list/B">B</a>&nbsp
+        <a href="/countries-list/C">C</a>&nbsp
+        <a href="/countries-list/D">D</a>&nbsp
+        <a href="/countries-list/E">E</a>&nbsp
+        <a href="/countries-list/F">F</a>&nbsp
+        <a href="/countries-list/G">G</a>&nbsp
+        <a href="/countries-list/H">H</a>&nbsp
+        <a href="/countries-list/I">I</a>&nbsp
+        <a href="/countries-list/J">J</a>&nbsp
+        <a href="/countries-list/K">K</a>&nbsp
+        <a href="/countries-list/L">L</a>&nbsp
+        <a href="/countries-list/M">M</a>&nbsp
+        <a href="/countries-list/N">N</a>&nbsp
+        <a href="/countries-list/O">O</a>&nbsp
+        <a href="/countries-list/P">P</a>&nbsp
+        <a href="/countries-list/Q">Q</a>&nbsp
+        <a href="/countries-list/R">R</a>&nbsp
+        <a href="/countries-list/S">S</a>&nbsp
+        <a href="/countries-list/T">T</a>&nbsp
+        <a href="/countries-list/U">U</a>&nbsp
+        <a href="/countries-list/V">V</a>&nbsp
+        <a href="/countries-list/W">W</a>&nbsp
+        <a href="/countries-list/X">X</a>&nbsp
+        <a href="/countries-list/Y">Y</a>&nbsp
+        <a href="/countries-list/Z">Z</a>&nbsp
+    </b>
+<ol>
+    {% for country in page_obj %}
+        <li><a href={{country.country|urlencode}}>{{ country.country}}</a></li>
+    {% endfor %}
+</ol>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+</body>
+</html>

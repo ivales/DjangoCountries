@@ -5,18 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-<h1>{{requested_country}}</h1>
-<ul>
     {% for country in countries %}
-      {% if country.country == requested_country %}
         {% for language in country.languages %}
-        <li>{{language}}</a></li>
-        {% endfor %}
+            {% if country.country|make_list|first|upper == letter %}
+        <li><a href=/{{country.country|urlencode}}>{{ country.country}}</a></li>
       {% endif %}
     {% endfor %}
-</ul>
 </body>
-<footer>
-    <a href = "/countries-list">К списку стран</a>
-</footer>
 </html>
