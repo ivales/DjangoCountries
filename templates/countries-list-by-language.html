@@ -5,12 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-<h1>{{requested_country}}</h1>
+<h1>{{requested_language}}</h1>
 <ul>
-    {% for country in countries %}
-      {% if country.country == requested_country %}
-        {% for language in country.languages %}
-        <li><a href="/languages-list/{{language|urlencode}}">{{language}}</a></li>
+    {% for language in languages_list %}
+      {% if language.language == requested_language %}
+        {% for country in language.countries %}
+            <li><a href="/{{country}}">{{country}}</a></li>
         {% endfor %}
       {% endif %}
     {% endfor %}

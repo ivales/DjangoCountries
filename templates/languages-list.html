@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Языки</title>
+</head>
+<body>
+<ol>
+    {% for language in languages_list %}
+        <li><a href="/languages-list/{{language.language|urlencode}}">{{language.language}}</a></li>
+    {% endfor %}
+</ol>
+</body>
+<footer>
+    <a href = "/countries-list">К списку стран</a>
+</footer>
+</html>

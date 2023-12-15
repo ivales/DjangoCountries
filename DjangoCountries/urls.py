@@ -15,15 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from MainApp.views import main, countries, country, page, letter, languages
+from MainApp.views import main, countries, country, letter, languages, language
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main),
     path('countries-list', countries),
-    path('<str:requested_country>', country),
+    path('languages-list', languages),
+    path('languages-list/<str:requested_language>', language),
     path('countries-list/<str:letter>', letter),
-    path('<int:page>', page),
-    path('languages', languages)
+    path('<str:requested_country>', country)
 
 ]
