@@ -9,7 +9,9 @@ with open('country-by-languages.json') as countries_file:
 
 def main(request):
     return HttpResponse(f'<h1>Приветствую!</h1>'
-                        f'<a href=countries-list>Страны</a>')
+                        f'<a href=countries-list>Страны</a>'
+                        f'<a href=languages-list>Языки</a>'
+                       )
 
 
 def countries(request):
@@ -33,4 +35,7 @@ def letter(request, letter):
 
 
 def languages(request):
-    return render(request, 'languages.html', {'countries':countries_list})
+    for country in countries_list:
+        for language in country["languages"]:
+            language-list[language].append(country["country"])
+    return render(request, 'languages.html', {'languages':languages_list})
