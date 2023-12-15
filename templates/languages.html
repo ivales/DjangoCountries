@@ -5,11 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-    {% for country in countries %}
-        {% for language in country.languages %}
-            {% if country.country|make_list|first|upper == letter %}
-        <li><a href=/{{country.country|urlencode}}>{{ country.country}}</a></li>
-      {% endif %}
+    {% for language in language-list %}
+        <li><a href=/{{language.language|urlencode}}>{{ language.language}}</a></li>
     {% endfor %}
 </body>
 </html>
